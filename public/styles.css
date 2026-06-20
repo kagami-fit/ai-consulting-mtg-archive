@@ -756,11 +756,39 @@ textarea:focus {
   grid-column: span 2;
 }
 
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.panel-title-row h3 {
+  margin: 0;
+}
+
 .action-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
   font-size: 14px;
+}
+
+.action-owner-col {
+  width: 14%;
+}
+
+.action-task-col {
+  width: 38%;
+}
+
+.action-due-col {
+  width: 16%;
+}
+
+.action-status-col {
+  width: 32%;
 }
 
 .action-table th,
@@ -783,15 +811,55 @@ textarea:focus {
   font-weight: 700;
 }
 
+.action-status-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(72px, 1fr));
+  gap: 6px;
+}
+
 .state-badge {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
+  min-height: 30px;
+  border: 1px solid rgba(101, 112, 134, 0.2);
   border-radius: 8px;
-  background: rgba(111, 92, 255, 0.13);
-  color: var(--violet);
-  padding: 4px 8px;
+  background: #fff;
+  color: var(--muted);
+  padding: 5px 8px;
   font-size: 12px;
   font-weight: 900;
+  white-space: nowrap;
+}
+
+.state-badge:hover,
+.state-badge:focus-visible {
+  border-color: rgba(111, 92, 255, 0.5);
+  outline: none;
+}
+
+.state-badge.todo.active {
+  border-color: rgba(101, 112, 134, 0.34);
+  background: #eef2f7;
+  color: #485266;
+}
+
+.state-badge.progress.active {
+  border-color: rgba(111, 92, 255, 0.36);
+  background: rgba(111, 92, 255, 0.14);
+  color: var(--violet);
+}
+
+.state-badge.review.active {
+  border-color: rgba(245, 158, 11, 0.36);
+  background: rgba(245, 158, 11, 0.15);
+  color: #a15c00;
+}
+
+.state-badge.done.active {
+  border-color: rgba(22, 163, 74, 0.34);
+  background: rgba(22, 163, 74, 0.14);
+  color: #138044;
 }
 
 .keyword-list {

@@ -1,7 +1,11 @@
+const ACTION_STATUSES = ["未着手", "進行中", "確認待ち", "完了"];
+const ACTION_STATUS_STORAGE_KEY = "ai-consulting-action-status:v1";
+
 const state = {
   records: [],
   selectedId: null,
   query: "",
+  actionStatusOverrides: readActionStatusOverrides(),
 };
 
 const els = {
@@ -63,7 +67,7 @@ async function fetchRecords() {
 }
 
 function normalizeRecords(records) {
-  return [...(records || [])].sort((a, b) => {
+  return [...(records || [])].map(applyActionStatusOverrides).sort((a, b) => {
     const left = `${b.meetingDate || ""}${b.createdAt || ""}`;
     const right = `${a.meetingDate || ""}${a.createdAt || ""}`;
     return left.localeCompare(right);
@@ -175,7 +179,7 @@ function renderDetail(record) {
         ${listPanel("要約", minutes.summary)}
         ${listPanel("議題", minutes.agenda)}
         ${listPanel("決定事項", minutes.decisions)}
-        ${actionPanel(minutes.actionItems)}
+        ${actionPanel(record.id, minutes.actionItems)}
         ${listPanel("課題・懸念", minutes.risks)}
         ${listPanel("次回までに", minutes.nextSteps)}
       </div>
@@ -229,27 +233,123 @@ function listPanel(title, items = []) {
   `;
 }
 
-function actionPanel(items = []) {
+function actionPanel(recordId, items = []) {
   const rows = (items || [])
     .map(
-      (item) => `
+      (item, index) => {
+        const status = normalizeActionStatus(item.status);
+        return `
       <tr>
         <td data-label="担当">${escapeHtml(item.owner || "未設定")}</td>
         <td data-label="タスク">${escapeHtml(item.task || "")}</td>
         <td data-label="期限">${escapeHtml(item.due || "未設定")}</td>
-        <td data-label="状態"><span class="state-badge">${escapeHtml(item.status || "未着手")}</span></td>
-      </tr>`
+        <td data-label="状態">${actionStatusSwitch(recordId, index, status)}</td>
+      </tr>`;
+      }
     )
     .join("");
   return `
     <section class="insight-panel action-panel">
-      <h3>アクション</h3>
+      <div class="panel-title-row">
+        <h3>アクション</h3>
+      </div>
       <table class="action-table">
+        <colgroup>
+          <col class="action-owner-col" />
+          <col class="action-task-col" />
+          <col class="action-due-col" />
+          <col class="action-status-col" />
+        </colgroup>
         <thead><tr><th>担当</th><th>タスク</th><th>期限</th><th>状態</th></tr></thead>
-        <tbody>${rows || `<tr><td data-label="担当">未設定</td><td data-label="タスク">未記載</td><td data-label="期限">未設定</td><td data-label="状態"><span class="state-badge">未着手</span></td></tr>`}</tbody>
+        <tbody>${rows || `<tr><td data-label="担当">未設定</td><td data-label="タスク">未記載</td><td data-label="期限">未設定</td><td data-label="状態">${actionStatusSwitch(recordId, 0, "未着手")}</td></tr>`}</tbody>
       </table>
     </section>
   `;
+}
+
+function actionStatusSwitch(recordId, actionIndex, currentStatus) {
+  return `
+    <div class="action-status-switch" role="group" aria-label="アクション状態">
+      ${ACTION_STATUSES.map(
+        (status) => `
+        <button
+          class="state-badge ${statusClassName(status)}${status === currentStatus ? " active" : ""}"
+          type="button"
+          data-action-status="${escapeHtml(status)}"
+          data-record-id="${escapeHtml(recordId)}"
+          data-action-index="${escapeHtml(actionIndex)}"
+          aria-pressed="${status === currentStatus ? "true" : "false"}"
+        >${escapeHtml(status)}</button>`
+      ).join("")}
+    </div>
+  `;
+}
+
+function readActionStatusOverrides() {
+  try {
+    return JSON.parse(localStorage.getItem(ACTION_STATUS_STORAGE_KEY) || "{}");
+  } catch (_error) {
+    return {};
+  }
+}
+
+function writeActionStatusOverrides() {
+  localStorage.setItem(ACTION_STATUS_STORAGE_KEY, JSON.stringify(state.actionStatusOverrides));
+}
+
+function actionStatusKey(recordId, actionIndex) {
+  return `${recordId}:${actionIndex}`;
+}
+
+function applyActionStatusOverrides(record) {
+  const actionItems = record.minutes?.actionItems;
+  if (!Array.isArray(actionItems)) return record;
+  const normalizedItems = actionItems.map((item, index) => {
+    const key = actionStatusKey(record.id, index);
+    const status = normalizeActionStatus(state.actionStatusOverrides[key] || item.status);
+    return { ...item, status };
+  });
+  return { ...record, minutes: { ...record.minutes, actionItems: normalizedItems } };
+}
+
+function setActionStatus(recordId, actionIndex, status) {
+  const normalized = normalizeActionStatus(status);
+  const record = state.records.find((item) => item.id === recordId);
+  const actionItem = record?.minutes?.actionItems?.[actionIndex];
+  if (!record || !actionItem) return;
+
+  actionItem.status = normalized;
+  state.actionStatusOverrides[actionStatusKey(recordId, actionIndex)] = normalized;
+  writeActionStatusOverrides();
+  renderDetail(record);
+}
+
+function normalizeActionStatus(status = "") {
+  const normalized = String(status || "").trim();
+  const aliases = {
+    作成済み: "完了",
+    完了済み: "完了",
+    共有済み: "完了",
+    対応済み: "完了",
+    対応中: "進行中",
+    着手中: "進行中",
+    未対応: "未着手",
+    未着手: "未着手",
+    進行中: "進行中",
+    確認待ち: "確認待ち",
+    完了: "完了",
+  };
+  return aliases[normalized] || "未着手";
+}
+
+function statusClassName(status) {
+  const classes = {
+    未着手: "todo",
+    進行中: "progress",
+    確認待ち: "review",
+    完了: "done",
+  };
+  return classes[status] || "todo";
 }
 
 function diagramSection(record) {
@@ -346,6 +446,12 @@ function transcriptSection(items = []) {
 }
 
 function handleDetailClick(event) {
+  const statusButton = event.target.closest("[data-action-status]");
+  if (statusButton) {
+    setActionStatus(statusButton.dataset.recordId, Number(statusButton.dataset.actionIndex), statusButton.dataset.actionStatus);
+    return;
+  }
+
   const button = event.target.closest("[data-lightbox-src]");
   if (!button) return;
   openLightbox(button.dataset.lightboxSrc, button.dataset.lightboxAlt || "");
