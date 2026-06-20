@@ -10,15 +10,29 @@
     ],
     "category": "キックオフMTG",
     "location": "オンライン",
-    "status": "waiting-video",
+    "status": "published",
     "duration": "1:02:45",
-    "videoUrl": "",
+    "videoUrl": "https://youtu.be/kHbNIuGjERM",
     "videoTitle": "AIコンサルティング キックオフMTG",
     "notes": "今後3か月で優先して進めるAI活用テーマを整理。取引実績データ、名刺OCR、SNS発信、パーソナルナレッジ、SUUMO入力補助を候補にし、まずはデータ整備とナレッジ化から着手する方針になった。",
     "diagramUrl": "records/2026-06-20-ai-consulting-kickoff/diagram.png",
     "diagramCaption": "キックオフMTGで整理した優先テーマと実行順序。",
+    "resources": [
+      {
+        "title": "名刺OCR・Google Drive連携案",
+        "description": "名刺約300枚をGoogle Driveで取り込み、OCRとスプレッドシートで営業リスト化するための共有資料。",
+        "url": "reports/business-card-ocr-google-drive.html",
+        "type": "調査資料"
+      },
+      {
+        "title": "名刺管理シート CSVテンプレート",
+        "description": "スプレッドシート作成時に使える列定義テンプレート。",
+        "url": "templates/business-card-master-template.csv",
+        "type": "テンプレート"
+      }
+    ],
     "createdAt": "2026-06-20T10:00:00.000+09:00",
-    "updatedAt": "2026-06-20T15:09:29.000+09:00",
+    "updatedAt": "2026-06-20T15:46:18.000+09:00",
     "timeline": [
       {
         "time": "00:01",
@@ -110,7 +124,7 @@
           "owner": "加賀美",
           "task": "名刺OCRの取り込み方法とGoogle Drive連携案を調査する",
           "due": "次回まで",
-          "status": "未着手"
+          "status": "共有済み"
         },
         {
           "owner": "内田豊様",

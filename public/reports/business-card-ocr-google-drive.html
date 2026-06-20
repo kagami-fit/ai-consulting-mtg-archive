@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>名刺OCR・Google Drive連携案 | AI Consulting</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="report-page">
+    <main class="report-shell">
+      <nav class="report-topbar" aria-label="戻る">
+        <a href="../index.html">← MTGアーカイブへ戻る</a>
+        <span>Client Share / 2026.06.20</span>
+      </nav>
+
+      <header class="report-hero">
+        <p class="eyebrow">Business Card OCR Plan</p>
+        <h1>名刺OCR・Google Drive連携案</h1>
+        <p>
+          内田豊様 / 株式会社 籠や向けに、手元の名刺をGoogle Driveへ取り込み、
+          OCRでテキスト化し、スプレッドシートへ整理して営業接点として活用するための実行案です。
+        </p>
+        <div class="report-meta">
+          <span>作成：加賀美</span>
+          <span>対象：約300枚の名刺</span>
+          <span>用途：顧客接点リスト化</span>
+        </div>
+      </header>
+
+      <section class="report-section report-verdict">
+        <div>
+          <p class="eyebrow">Recommendation</p>
+          <h2>結論：まずは低コストで30枚テスト、その後300枚へ展開</h2>
+        </div>
+        <div class="verdict-grid">
+          <article>
+            <strong>推奨スタート</strong>
+            <p>Google Driveに名刺画像を集約し、Google Docs OCRでテキスト化。抽出結果をスプレッドシートに転記し、必ず人が確認します。</p>
+          </article>
+          <article>
+            <strong>自動化の次段階</strong>
+            <p>Apps ScriptでDriveフォルダを定期巡回し、OCR済みテキストと原本URLを名刺管理シートへ自動追加します。</p>
+          </article>
+          <article>
+            <strong>高精度化</strong>
+            <p>継続的に大量処理する場合は、Cloud Vision OCRやAIによる項目抽出を組み合わせます。費用と個人情報管理を先に決めます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>想定フロー</h2>
+          <p>撮影から営業リスト化までの標準運用</p>
+        </div>
+        <ol class="process-list">
+          <li>
+            <time>01</time>
+            <div>
+              <strong>名刺を撮影・スキャン</strong>
+              <p>1枚ずつ、影・反射・斜め撮影を避けて保存。裏面があるものは表裏を別ファイルにします。</p>
+            </div>
+          </li>
+          <li>
+            <time>02</time>
+            <div>
+              <strong>Google Driveの受領フォルダに投入</strong>
+              <p>ファイル名は「会社名_氏名_表」など、あとから探せる形に統一します。</p>
+            </div>
+          </li>
+          <li>
+            <time>03</time>
+            <div>
+              <strong>Google Docs OCRでテキスト化</strong>
+              <p>Drive上で画像やPDFをGoogleドキュメントとして開くと、画像と抽出テキストを含む文書に変換できます。</p>
+            </div>
+          </li>
+          <li>
+            <time>04</time>
+            <div>
+              <strong>項目をスプレッドシートへ整理</strong>
+              <p>氏名、会社名、部署、役職、電話番号、メール、住所、タグ、確認ステータスを1行ずつ管理します。</p>
+            </div>
+          </li>
+          <li>
+            <time>05</time>
+            <div>
+              <strong>人が確認して営業活用へ</strong>
+              <p>OCR誤認識、重複、古い情報を確認してから、検索・セグメント・メール文面作成などに活用します。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>Google Drive構成案</h2>
+          <p>後から増えても迷わないフォルダ設計</p>
+        </div>
+        <div class="folder-map">
+          <div>籠や_名刺OCR</div>
+          <div>00_受領_未処理</div>
+          <div>01_OCR済みDoc</div>
+          <div>02_確認待ち</div>
+          <div>03_登録済み</div>
+          <div>99_要確認_読取不可</div>
+        </div>
+        <p class="report-note">
+          共有権限は「関係者のみ」に限定します。名刺は個人情報を含むため、リンクを知っている全員に公開する設定は避けます。
+        </p>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>名刺管理シート項目</h2>
+          <p>最初からCRM移行しやすい列にしておく</p>
+        </div>
+        <div class="table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>列</th>
+                <th>目的</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>管理</td>
+                <td>管理ID / ステータス / 取込日 / 最終更新日</td>
+                <td>処理漏れ、重複、更新履歴を追えるようにする</td>
+              </tr>
+              <tr>
+                <td>原本</td>
+                <td>原本ファイルURL / OCRドキュメントURL</td>
+                <td>読み取り結果に迷ったとき、必ず原本へ戻れるようにする</td>
+              </tr>
+              <tr>
+                <td>連絡先</td>
+                <td>氏名 / 会社名 / 部署 / 役職 / 電話 / 携帯 / メール / 住所 / Webサイト</td>
+                <td>営業・案内・フォローで使う基本項目を揃える</td>
+              </tr>
+              <tr>
+                <td>営業情報</td>
+                <td>名刺交換日 / 名刺交換場所 / 担当者 / タグ / 確認メモ</td>
+                <td>接点の文脈を残し、後日の提案や紹介に使いやすくする</td>
+              </tr>
+              <tr>
+                <td>品質管理</td>
+                <td>重複候補 / 要確認フラグ</td>
+                <td>同一人物・同一会社の重複登録やOCRミスを防ぐ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <a class="report-button" href="../templates/business-card-master-template.csv" download>CSVテンプレートをダウンロード</a>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>実装パターン比較</h2>
+          <p>費用・精度・導入スピードのバランス</p>
+        </div>
+        <div class="option-grid">
+          <article>
+            <span>Plan A</span>
+            <h3>Drive手動OCR</h3>
+            <p>Driveにアップロードした画像/PDFをGoogle Docsで開き、テキスト化して確認する方法。初期費用を抑えて始めやすいです。</p>
+            <ul>
+              <li>向いている：まず30枚で試す、件数が少ない</li>
+              <li>注意：項目分解と転記は手作業が残る</li>
+            </ul>
+          </article>
+          <article>
+            <span>Plan B</span>
+            <h3>Apps Script連携</h3>
+            <p>Driveフォルダを定期確認し、OCR済みテキストとファイルURLをスプレッドシートへ追加する方法です。</p>
+            <ul>
+              <li>向いている：300枚をまとめて処理、継続運用したい</li>
+              <li>注意：初回の権限設定とエラー管理が必要</li>
+            </ul>
+          </article>
+          <article>
+            <span>Plan C</span>
+            <h3>Cloud Vision / AI抽出</h3>
+            <p>OCR結果をAPIで取得し、氏名・会社名・メールなどをAIで構造化する方法。精度と拡張性を上げやすいです。</p>
+            <ul>
+              <li>向いている：継続的に大量処理、CRM連携まで見据える</li>
+              <li>注意：Google Cloudの請求設定と個人情報管理が必要</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>Apps Script連携イメージ</h2>
+          <p>自動化する場合の処理単位</p>
+        </div>
+        <pre class="code-block"><code>受領フォルダを定期確認
+  → 新規画像/PDFを検出
+  → Google Docs形式に変換してOCR
+  → OCR本文を取得
+  → 氏名・会社名・連絡先候補を抽出
+  → スプレッドシートに1行追加
+  → 原本を「確認待ち」へ移動
+  → 人が確認して「登録済み」へ変更</code></pre>
+        <p class="report-note">
+          Google Apps Scriptでは、スプレッドシートへの行追加、時間主導型トリガー、Drive APIの高度なサービスを組み合わせて実装できます。
+          ただし、名刺は誤認識が起きやすいため「自動登録」ではなく「自動下書き＋人の確認」を推奨します。
+        </p>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>導入ステップ</h2>
+          <p>最短で失敗しない進め方</p>
+        </div>
+        <div class="step-grid">
+          <article>
+            <strong>Step 1 / 準備</strong>
+            <p>Driveフォルダ、名刺管理シート、列定義、確認担当を決める。</p>
+          </article>
+          <article>
+            <strong>Step 2 / 30枚テスト</strong>
+            <p>表記ゆれ、縦書き、古い名刺、裏面の有無を含めてOCR精度を確認する。</p>
+          </article>
+          <article>
+            <strong>Step 3 / 300枚処理</strong>
+            <p>撮影、OCR、確認、重複整理をまとめて進め、営業で使える状態へ整える。</p>
+          </article>
+          <article>
+            <strong>Step 4 / 自動化</strong>
+            <p>継続的に名刺が増える場合、Apps Scriptで受領フォルダから自動追記する。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>運用ルール</h2>
+          <p>精度と個人情報保護のための前提</p>
+        </div>
+        <ul class="report-list">
+          <li>名刺画像は、明るく、ピントが合い、文字が水平に近い状態で撮影する。</li>
+          <li>OCR結果は必ず人が確認し、メールアドレス・電話番号・会社名を重点確認する。</li>
+          <li>同じメールアドレス、電話番号、会社名＋氏名で重複チェックする。</li>
+          <li>共有範囲は関係者のみに限定し、公開リンクで名刺原本やリストを共有しない。</li>
+          <li>営業利用する前に、タグと接点メモを付けて「なぜ連絡するのか」が分かる状態にする。</li>
+        </ul>
+      </section>
+
+      <section class="report-section source-section">
+        <div class="section-heading">
+          <h2>参照した公式情報</h2>
+          <p>2026年6月20日時点</p>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://support.google.com/drive/answer/176692?hl=ja" target="_blank" rel="noreferrer">Google ドライブ ヘルプ：PDFや写真ファイルをテキストに変換</a></li>
+          <li><a href="https://developers.google.com/workspace/drive/api/guides/manage-uploads" target="_blank" rel="noreferrer">Google Drive API：Upload file data / Import to Google Docs types</a></li>
+          <li><a href="https://developers.google.com/apps-script/guides/services/advanced?hl=ja" target="_blank" rel="noreferrer">Apps Script：高度な Google サービス</a></li>
+          <li><a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendrowrowcontents" target="_blank" rel="noreferrer">Apps Script：SpreadsheetApp appendRow</a></li>
+          <li><a href="https://developers.google.com/apps-script/guides/triggers/installable?hl=ja" target="_blank" rel="noreferrer">Apps Script：インストール可能なトリガー</a></li>
+          <li><a href="https://docs.cloud.google.com/vision/docs/ocr?hl=ja" target="_blank" rel="noreferrer">Cloud Vision API：画像内のテキストを検出</a></li>
+          <li><a href="https://cloud.google.com/vision/pricing?hl=ja" target="_blank" rel="noreferrer">Cloud Vision API：料金</a></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -170,6 +170,7 @@ function renderDetail(record) {
     <div class="detail-body">
       ${videoSection(record)}
       ${diagramSection(record)}
+      ${resourcesSection(record.resources)}
       <div class="insight-grid">
         ${listPanel("要約", minutes.summary)}
         ${listPanel("議題", minutes.agenda)}
@@ -265,6 +266,29 @@ function diagramSection(record) {
           <img src="${escapeHtml(url)}" alt="${escapeHtml(record.title)}の図解" />
         </button>
       </div>
+    </section>
+  `;
+}
+
+function resourcesSection(resources = []) {
+  if (!resources?.length) return "";
+  const cards = resources
+    .map(
+      (resource) => `
+      <a class="resource-card" href="${escapeHtml(assetUrl(resource.url))}" target="_blank" rel="noreferrer">
+        <span>${escapeHtml(resource.type || "資料")}</span>
+        <strong>${escapeHtml(resource.title || "")}</strong>
+        ${resource.description ? `<p>${escapeHtml(resource.description)}</p>` : ""}
+      </a>`
+    )
+    .join("");
+  return `
+    <section class="resources-section">
+      <div class="section-heading">
+        <h3>共有資料</h3>
+        <p>クライアント共有用の調査・テンプレート</p>
+      </div>
+      <div class="resource-grid">${cards}</div>
     </section>
   `;
 }
@@ -377,6 +401,7 @@ function recordSearchText(record) {
     ...(minutes.nextSteps || []),
     ...(minutes.keywords || []).map((keyword) => keyword.term),
     ...(minutes.actionItems || []).flatMap((item) => [item.owner, item.task, item.due, item.status]),
+    ...(record.resources || []).flatMap((item) => [item.title, item.description, item.type]),
   ];
   return buckets.filter(Boolean).join(" ").toLowerCase();
 }

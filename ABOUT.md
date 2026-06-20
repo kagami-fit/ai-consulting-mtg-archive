@@ -10,6 +10,7 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - YouTube動画の埋め込み表示
 - 文字起こしから作った要約、決定事項、課題、次回アクションを表示
 - AIで作成した図解画像をMTGに紐づけて表示
+- クライアント共有用の調査資料・テンプレートをMTGに紐づけて表示
 - 顧客名、テーマ、担当、キーワードで検索
 - GitHub Pagesなどで共有用サイトとして公開
 
@@ -20,7 +21,8 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - `public/app.js` — 議事録一覧、検索、詳細表示、動画埋め込み、図解拡大表示
 - `public/records.json` — MTGデータ本体。今後の会議はここに追記
 - `public/records/2026-06-20-ai-consulting-kickoff/diagram.png` — キックオフMTGの図解画像
-- `public/brand/` — 現在は未使用。サイト上ではロゴを表示しない方針
+- `public/reports/business-card-ocr-google-drive.html` — クライアント共有用の名刺OCR・Google Drive連携案
+- `public/templates/business-card-master-template.csv` — 名刺管理シート用のCSVテンプレート
 - `server/index.js` — ローカル確認用の読み取り専用Expressサーバー
 - `.github/workflows/pages.yml` — GitHub Pages公開用ワークフロー
 
@@ -45,5 +47,7 @@ http://localhost:3000
 - ルートプロジェクト — 開発中
 - `public/` — 稼働中。MTG一覧、検索、詳細表示、動画枠、図解、要約表示を実装済み
 - `public/records/` — 稼働中。AIコンサルティング キックオフMTGの図解画像を配置済み
+- `public/reports/` — 稼働中。名刺OCR・Google Drive連携案を配置済み
+- `public/templates/` — 稼働中。名刺管理シートCSVテンプレートを配置済み
 - `server/` — 稼働中。ローカル確認用サーバーとして実装済み
-- GitHub Pages公開 — 未着手。リポジトリ作成後に有効化
+- GitHub Pages公開 — 稼働中。`https://kagami-fit.github.io/ai-consulting-mtg-archive/` で公開
