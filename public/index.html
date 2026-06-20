@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Consulting MTG Archive</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="日付別アーカイブ">
+        <div class="brand">
+          <strong>AI Consulting</strong>
+          <p>Client MTG Archive</p>
+        </div>
+
+        <label class="search-box" for="searchInput">
+          <span>検索</span>
+          <input id="searchInput" type="search" placeholder="顧客名・テーマ・担当で検索" autocomplete="off" />
+        </label>
+
+        <div class="sidebar-header">
+          <span>日付別</span>
+          <button class="icon-button" id="refreshButton" type="button" aria-label="更新">↻</button>
+        </div>
+        <nav id="archiveList" class="archive-list"></nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="archive-hero">
+          <div>
+            <p class="eyebrow">Client Portal</p>
+            <h2>MTGアーカイブ</h2>
+          </div>
+          <div class="hero-stats" aria-label="アーカイブ概要">
+            <div>
+              <strong id="recordCount">0</strong>
+              <span>MTG</span>
+            </div>
+            <div>
+              <strong id="clientCount">0</strong>
+              <span>Client</span>
+            </div>
+            <div>
+              <strong id="actionCount">0</strong>
+              <span>Action</span>
+            </div>
+          </div>
+        </header>
+
+        <section id="detailPane" class="detail-pane empty-state">
+          <div class="empty-copy">
+            <h2>議事録を選択</h2>
+            <p>日付別アーカイブから選ぶと、要約・決定事項・アクション・図解を表示します。</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="image-lightbox" id="imageLightbox" hidden aria-hidden="true">
+      <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="閉じる"></button>
+      <figure class="lightbox-panel">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="閉じる">×</button>
+        <img id="lightboxImage" src="" alt="" />
+      </figure>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
