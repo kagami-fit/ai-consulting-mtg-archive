@@ -2,12 +2,12 @@
 
 ## 一言で言うと
 
-AIコンサルティングの会議動画と文字起こし要約を、クライアントごと・日付ごとに見返せる静的HTMLの会員サイト風アーカイブです。YouTube動画URLを入れると、各MTG詳細に動画・要約・アクション・図解をまとめて表示できます。
+AIコンサルティングの会議動画と文字起こし要約を、クライアントごと・日付ごとに見返せる静的HTMLの会員サイト風アーカイブです。YouTubeまたはGoogle Driveの動画URLを入れると、各MTG詳細に動画・要約・アクション・図解をまとめて表示できます。
 
 ## 何ができるのか
 
 - クライアント別のMTG記録を日付順に一覧表示
-- YouTube動画の埋め込み表示
+- YouTube / Google Drive動画の埋め込み表示
 - 文字起こしから作った要約、決定事項、課題、次回アクションを表示
 - 文字起こし全文をクライアント共有用ページとして表示
 - アクション状態を `未着手 / 進行中 / 確認待ち / 完了` でその場切り替え
@@ -44,7 +44,9 @@ npm run dev
 http://localhost:3000
 ```
 
-新しいMTGを追加するときは、`public/records.json` に1件追加し、必要に応じて `public/records/[record-id]/diagram.png` を置きます。YouTubeに動画をアップロードした後は、そのMTGの `videoUrl` にURLを入れるだけで詳細画面に埋め込まれます。
+新しいMTGを追加するときは、`public/records.json` に1件追加し、必要に応じて `public/records/[record-id]/diagram.png` を置きます。YouTubeまたはGoogle Driveに動画を置いた後は、そのMTGの `videoUrl` にURLを入れるだけで詳細画面に埋め込まれます。
+
+Google Drive動画を使う場合は、Drive側で動画ファイルの共有権限を「リンクを知っている全員が閲覧可」または対象クライアントが閲覧できる設定にします。サイト側では `https://drive.google.com/file/d/.../view` の共有URLを自動で `/preview` 形式に変換して表示します。
 
 アクション状態の切り替えはブラウザのローカル保存です。GitHub Pagesの静的サイトだけで動くため、同じ端末・同じブラウザではリロード後も状態が残ります。複数人で同じ状態を共有する場合は、Google SheetsやFirebaseなどの保存先を追加します。
 

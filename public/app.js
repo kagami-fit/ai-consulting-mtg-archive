@@ -191,7 +191,8 @@ function renderDetail(record) {
 }
 
 function videoSection(record) {
-  const embedUrl = youtubeEmbedUrl(record.videoUrl || record.youtubeUrl);
+  const videoUrl = record.videoUrl || record.youtubeUrl;
+  const embedUrl = videoEmbedUrl(videoUrl);
   if (embedUrl) {
     return `
       <section class="video-section">
@@ -216,7 +217,7 @@ function videoSection(record) {
         <div class="play-symbol" aria-hidden="true">▶</div>
         <div>
           <strong>動画URL未設定</strong>
-          <span>records.json の videoUrl にYouTube URLを入れると埋め込み表示されます。</span>
+          <span>records.json の videoUrl にYouTubeまたはGoogle Driveの共有URLを入れると埋め込み表示されます。</span>
         </div>
       </div>
     </section>
@@ -512,6 +513,10 @@ function recordSearchText(record) {
   return buckets.filter(Boolean).join(" ").toLowerCase();
 }
 
+function videoEmbedUrl(value) {
+  return youtubeEmbedUrl(value) || googleDriveEmbedUrl(value);
+}
+
 function youtubeEmbedUrl(value) {
   if (!value) return "";
 
@@ -528,6 +533,27 @@ function youtubeEmbedUrl(value) {
     }
     const videoId = url.searchParams.get("v");
     return videoId ? `https://www.youtube.com/embed/${encodeURIComponent(videoId)}` : "";
+  } catch (_error) {
+    return "";
+  }
+}
+
+function googleDriveEmbedUrl(value) {
+  if (!value) return "";
+
+  try {
+    const url = new URL(value);
+    if (!url.hostname.endsWith("drive.google.com")) return "";
+
+    const fileId = url.pathname.match(/\/file\/d\/([^/]+)/)?.[1] || url.searchParams.get("id");
+    if (!fileId) return "";
+
+    const embedUrl = new URL(`https://drive.google.com/file/d/${encodeURIComponent(fileId)}/preview`);
+    const resourceKey = url.searchParams.get("resourcekey");
+    if (resourceKey) {
+      embedUrl.searchParams.set("resourcekey", resourceKey);
+    }
+    return embedUrl.toString();
   } catch (_error) {
     return "";
   }
