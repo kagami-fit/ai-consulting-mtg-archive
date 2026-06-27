@@ -29,6 +29,12 @@
         "description": "スプレッドシート作成時に使える列定義テンプレート。",
         "url": "templates/business-card-master-template.csv",
         "type": "テンプレート"
+      },
+      {
+        "title": "キックオフMTG 文字起こし全文",
+        "description": "会議内容を原文で確認できる全文ビューア。",
+        "url": "transcripts/2026-06-20-ai-consulting-kickoff.html",
+        "type": "文字起こし"
       }
     ],
     "createdAt": "2026-06-20T10:00:00.000+09:00",

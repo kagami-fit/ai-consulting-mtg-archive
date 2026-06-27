@@ -9,6 +9,7 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - クライアント別のMTG記録を日付順に一覧表示
 - YouTube動画の埋め込み表示
 - 文字起こしから作った要約、決定事項、課題、次回アクションを表示
+- 文字起こし全文をクライアント共有用ページとして表示
 - アクション状態を `未着手 / 進行中 / 確認待ち / 完了` でその場切り替え
 - AIで作成した図解画像をMTGに紐づけて表示
 - クライアント共有用の調査資料・テンプレートをMTGに紐づけて表示
@@ -24,6 +25,8 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - `public/records/2026-06-20-ai-consulting-kickoff/diagram.png` — キックオフMTGの図解画像
 - `public/reports/business-card-ocr-google-drive.html` — クライアント共有用の名刺OCR・Google Drive連携案
 - `public/templates/business-card-master-template.csv` — 名刺管理シート用のCSVテンプレート
+- `public/transcripts/2026-06-20-ai-consulting-kickoff.html` — キックオフMTGの文字起こし全文ビューア
+- `public/transcripts/2026-06-20-ai-consulting-kickoff.txt` — キックオフMTGの文字起こし原文
 - `server/index.js` — ローカル確認用の読み取り専用Expressサーバー
 - `.github/workflows/pages.yml` — GitHub Pages公開用ワークフロー
 
@@ -52,5 +55,6 @@ http://localhost:3000
 - `public/records/` — 稼働中。AIコンサルティング キックオフMTGの図解画像を配置済み
 - `public/reports/` — 稼働中。名刺OCR・Google Drive連携案を配置済み
 - `public/templates/` — 稼働中。名刺管理シートCSVテンプレートを配置済み
+- `public/transcripts/` — 稼働中。キックオフMTGの文字起こし全文を配置済み
 - `server/` — 稼働中。ローカル確認用サーバーとして実装済み
 - GitHub Pages公開 — 稼働中。`https://kagami-fit.github.io/ai-consulting-mtg-archive/` で公開
