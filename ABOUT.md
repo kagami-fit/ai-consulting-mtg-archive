@@ -22,10 +22,13 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - `public/styles.css` — ビジネスライクな画面デザイン
 - `public/app.js` — 議事録一覧、検索、詳細表示、動画埋め込み、図解拡大表示
 - `public/records.json` — MTGデータ本体。今後の会議はここに追記
+- `public/records/2026-06-05-ai-real-estate-efficiency-kickoff/diagram.png` — 初回相談・キックオフの図解画像
 - `public/records/2026-06-13-ai-consulting-kickoff/diagram.png` — 第1回キックオフMTGの図解画像
 - `public/records/2026-06-20-codex-data-knowledge-mtg/diagram.png` — 第2回Codex導入・データ一元管理MTGの図解画像
 - `public/reports/business-card-ocr-google-drive.html` — クライアント共有用の名刺OCR・Google Drive連携案
 - `public/templates/business-card-master-template.csv` — 名刺管理シート用のCSVテンプレート
+- `public/transcripts/2026-06-05-ai-real-estate-efficiency-kickoff.html` — 初回相談・キックオフの文字起こし全文ビューア
+- `public/transcripts/2026-06-05-ai-real-estate-efficiency-kickoff.txt` — 初回相談・キックオフの文字起こし原文
 - `public/transcripts/2026-06-13-ai-consulting-kickoff.html` — 第1回キックオフMTGの文字起こし全文ビューア
 - `public/transcripts/2026-06-13-ai-consulting-kickoff.txt` — 第1回キックオフMTGの文字起こし原文
 - `public/transcripts/2026-06-20-codex-data-knowledge-mtg.html` — 第2回Codex導入MTGの文字起こし全文ビューア
@@ -57,9 +60,9 @@ Google Drive動画を使う場合は、Drive側で動画ファイルの共有権
 
 - ルートプロジェクト — 開発中
 - `public/` — 稼働中。MTG一覧、検索、詳細表示、動画枠、図解、要約表示を実装済み
-- `public/records/` — 稼働中。第1回キックオフMTG、第2回Codex導入MTGの図解画像を配置済み
+- `public/records/` — 稼働中。初回相談、第1回キックオフMTG、第2回Codex導入MTGの図解画像を配置済み
 - `public/reports/` — 稼働中。名刺OCR・Google Drive連携案を配置済み
 - `public/templates/` — 稼働中。名刺管理シートCSVテンプレートを配置済み
-- `public/transcripts/` — 稼働中。第1回・第2回MTGの文字起こし全文を配置済み
+- `public/transcripts/` — 稼働中。初回相談、第1回・第2回MTGの文字起こし全文を配置済み
 - `server/` — 稼働中。ローカル確認用サーバーとして実装済み
 - GitHub Pages公開 — 稼働中。`https://kagami-fit.github.io/ai-consulting-mtg-archive/` で公開

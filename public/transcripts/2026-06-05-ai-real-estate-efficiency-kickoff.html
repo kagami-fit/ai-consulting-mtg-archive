@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>初回相談・キックオフ 文字起こし全文 | AI Consulting</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="report-page">
+    <main class="report-shell">
+      <nav class="report-topbar" aria-label="戻る">
+        <a href="../index.html">← MTGアーカイブへ戻る</a>
+        <span>Transcript / 2026.06.05</span>
+      </nav>
+
+      <header class="report-hero transcript-hero">
+        <p class="eyebrow">Meeting Transcript</p>
+        <h1>初回相談・キックオフ 文字起こし全文</h1>
+        <p>
+          AIを活用した不動産業務効率化について相談した初回キックオフの文字起こし全文です。
+          要約で確認した内容の原文確認や、追加タスクの洗い出しに使えます。
+        </p>
+        <div class="report-meta">
+          <span>クライアント：内田豊様 / 株式会社 籠や</span>
+          <span>担当：加賀美</span>
+          <span>会議時間：39:01</span>
+        </div>
+      </header>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>全文</h2>
+          <p>自動文字起こしのため、一部表記ゆれを含みます</p>
+        </div>
+        <pre id="transcriptText" class="transcript-full-text">読み込み中...</pre>
+      </section>
+    </main>
+
+    <script>
+      fetch("./2026-06-05-ai-real-estate-efficiency-kickoff.txt")
+        .then((response) => {
+          if (!response.ok) throw new Error("文字起こしを読み込めませんでした");
+          return response.text();
+        })
+        .then((text) => {
+          document.querySelector("#transcriptText").textContent = text;
+        })
+        .catch((error) => {
+          document.querySelector("#transcriptText").textContent = error.message;
+        });
+    </script>
+  </body>
+</html>
