@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第2回 Codex導入MTG 文字起こし全文 | AI Consulting</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="report-page">
+    <main class="report-shell">
+      <nav class="report-topbar" aria-label="戻る">
+        <a href="../index.html">← MTGアーカイブへ戻る</a>
+        <span>Transcript / 2026.06.20</span>
+      </nav>
+
+      <header class="report-hero transcript-hero">
+        <p class="eyebrow">Meeting Transcript</p>
+        <h1>第2回 Codex導入・データ一元管理MTG 文字起こし全文</h1>
+        <p>
+          Codex導入、データ一元管理、ナレッジベース構築を扱った第2回MTGの文字起こし全文です。
+          要約で確認した内容の原文確認や、追加タスクの洗い出しに使えます。
+        </p>
+        <div class="report-meta">
+          <span>クライアント：内田豊様 / 株式会社 籠や</span>
+          <span>担当：加賀美</span>
+          <span>会議時間：約1:08:00</span>
+        </div>
+      </header>
+
+      <section class="report-section">
+        <div class="section-heading">
+          <h2>全文</h2>
+          <p>自動文字起こしのため、一部表記ゆれを含みます</p>
+        </div>
+        <pre id="transcriptText" class="transcript-full-text">読み込み中...</pre>
+      </section>
+    </main>
+
+    <script>
+      fetch("./2026-06-20-codex-data-knowledge-mtg.txt")
+        .then((response) => {
+          if (!response.ok) throw new Error("文字起こしを読み込めませんでした");
+          return response.text();
+        })
+        .then((text) => {
+          document.querySelector("#transcriptText").textContent = text;
+        })
+        .catch((error) => {
+          document.querySelector("#transcriptText").textContent = error.message;
+        });
+    </script>
+  </body>
+</html>

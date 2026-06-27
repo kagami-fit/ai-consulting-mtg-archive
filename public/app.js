@@ -211,7 +211,7 @@ function videoSection(record) {
     <section class="video-section">
       <div class="section-heading">
         <h3>動画</h3>
-        <p>YouTubeアップロード後にURLを設定</p>
+        <p>YouTubeまたはGoogle DriveのURLを設定</p>
       </div>
       <div class="video-placeholder">
         <div class="play-symbol" aria-hidden="true">▶</div>

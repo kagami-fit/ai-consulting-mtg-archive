@@ -1,22 +1,22 @@
 [
   {
-    "id": "2026-06-20-ai-consulting-kickoff",
-    "title": "AIコンサルティング キックオフMTG：3か月の優先テーマ整理",
-    "meetingDate": "2026-06-20",
+    "id": "2026-06-13-ai-consulting-kickoff",
+    "title": "第1回 AIコンサルティング キックオフMTG：3か月の優先テーマ整理",
+    "meetingDate": "2026-06-13",
     "clientName": "内田豊様 / 株式会社 籠や",
     "participants": [
       "内田豊様",
       "加賀美"
     ],
-    "category": "キックオフMTG",
+    "category": "第1回 キックオフMTG",
     "location": "オンライン",
     "status": "published",
     "duration": "1:02:45",
     "videoUrl": "https://youtu.be/kHbNIuGjERM",
-    "videoTitle": "AIコンサルティング キックオフMTG",
+    "videoTitle": "第1回 AIコンサルティング キックオフMTG",
     "notes": "今後3か月で優先して進めるAI活用テーマを整理。取引実績データ、名刺OCR、SNS発信、パーソナルナレッジ、SUUMO入力補助を候補にし、まずはデータ整備とナレッジ化から着手する方針になった。",
-    "diagramUrl": "records/2026-06-20-ai-consulting-kickoff/diagram.png",
-    "diagramCaption": "キックオフMTGで整理した優先テーマと実行順序。",
+    "diagramUrl": "records/2026-06-13-ai-consulting-kickoff/diagram.png",
+    "diagramCaption": "第1回キックオフMTGで整理した優先テーマと実行順序。",
     "resources": [
       {
         "title": "名刺OCR・Google Drive連携案",
@@ -31,14 +31,14 @@
         "type": "テンプレート"
       },
       {
-        "title": "キックオフMTG 文字起こし全文",
-        "description": "会議内容を原文で確認できる全文ビューア。",
-        "url": "transcripts/2026-06-20-ai-consulting-kickoff.html",
+        "title": "第1回 キックオフMTG 文字起こし全文",
+        "description": "06/13の会議内容を原文で確認できる全文ビューア。",
+        "url": "transcripts/2026-06-13-ai-consulting-kickoff.html",
         "type": "文字起こし"
       }
     ],
-    "createdAt": "2026-06-20T10:00:00.000+09:00",
-    "updatedAt": "2026-06-20T15:46:18.000+09:00",
+    "createdAt": "2026-06-13T16:02:00.000+09:00",
+    "updatedAt": "2026-06-27T10:15:00.000+09:00",
     "timeline": [
       {
         "time": "00:01",
@@ -111,7 +111,7 @@
         {
           "owner": "加賀美",
           "task": "パーソナルナレッジ作成用GPTを共有する",
-          "due": "明日目安",
+          "due": "次回まで",
           "status": "未着手"
         },
         {
@@ -170,7 +170,7 @@
         "取引実績から、営業サイト・画像・メール文面など複数アウトプットのデモを作る。",
         "名刺OCRの運用候補を調べ、Google Driveフォルダからスプレッドシートへ転記する流れを設計する。",
         "SNS発信の対象顧客、見せたい会社像、参考アカウントを言語化する。",
-        "次回MTGで進捗と追加テーマを確認し、優先順位を更新する。"
+        "第2回MTGで進捗と追加テーマを確認し、優先順位を更新する。"
       ],
       "keywords": [
         {
@@ -195,6 +195,175 @@
         },
         {
           "term": "Google Drive",
+          "count": 5
+        }
+      ]
+    }
+  },
+  {
+    "id": "2026-06-20-codex-data-knowledge-mtg",
+    "title": "第2回 Codex導入・データ一元管理MTG：ナレッジベース構築",
+    "meetingDate": "2026-06-20",
+    "clientName": "内田豊様 / 株式会社 籠や",
+    "participants": [
+      "内田豊様",
+      "加賀美"
+    ],
+    "category": "第2回 実装MTG",
+    "location": "オンライン",
+    "status": "waiting-video",
+    "duration": "1:08:00",
+    "videoUrl": "",
+    "videoTitle": "第2回 Codex導入・データ一元管理MTG",
+    "notes": "前回のキックオフ内容を受けて、MTGアーカイブサイトの共有、取引実績ダッシュボード、Codex導入、ナレッジファイル作成、Google Driveでの素材共有を具体的に確認した。",
+    "diagramUrl": "records/2026-06-20-codex-data-knowledge-mtg/diagram.png",
+    "diagramCaption": "第2回MTGで共有したCodex導入とナレッジベース構築の流れ。",
+    "resources": [
+      {
+        "title": "第2回 Codex導入MTG 文字起こし全文",
+        "description": "06/20の会議内容を原文で確認できる全文ビューア。",
+        "url": "transcripts/2026-06-20-codex-data-knowledge-mtg.html",
+        "type": "文字起こし"
+      }
+    ],
+    "createdAt": "2026-06-20T16:00:00.000+09:00",
+    "updatedAt": "2026-06-27T10:15:00.000+09:00",
+    "timeline": [
+      {
+        "time": "00:03",
+        "title": "MTGアーカイブ共有",
+        "detail": "議事録サイトの見方、図解、動画、記録の蓄積方法を共有。"
+      },
+      {
+        "time": "00:05",
+        "title": "取引実績ダッシュボード",
+        "detail": "共有された実績データをもとに、管理画面やダッシュボードとして一元化する方向性を確認。"
+      },
+      {
+        "time": "00:14",
+        "title": "Codex導入",
+        "detail": "Codexアプリの導入、ログイン、プロジェクトフォルダ作成、ローカルファイル操作の考え方を説明。"
+      },
+      {
+        "time": "00:22",
+        "title": "素材共有の依頼",
+        "detail": "名刺のサンプル写真、営業資料PDF、会社情報資料をGoogle Driveに入れてもらう方針を整理。"
+      },
+      {
+        "time": "00:48",
+        "title": "ナレッジ作成",
+        "detail": "GPTで会社情報を整理し、CodexでMarkdownファイルとして保存・更新する流れを実演。"
+      },
+      {
+        "time": "01:03",
+        "title": "ナレッジ更新の実演",
+        "detail": "ファイルパスを指定して既存ナレッジを更新する操作、追加指示の出し方を共有。"
+      }
+    ],
+    "transcriptSummary": [
+      "前回作成したMTGアーカイブサイトを共有し、今後の動画・議事録・図解を日付ごとに蓄積していく運用を確認した。",
+      "取引実績データをダッシュボード化し、裏側ではAIが読み取れるナレッジファイルとして整理する方向性を説明した。",
+      "Codexをインストールし、プロジェクトフォルダを作成して、ローカルファイルを扱えるAI作業環境として使う基本操作を確認した。",
+      "名刺サンプル、会社資料、PDFなどをGoogle Driveに集約し、ナレッジ化や営業資料化に使う素材として共有してもらう方針になった。",
+      "ChatGPTで抽出した会社情報をCodexに渡し、Markdownのナレッジファイルとして保存・更新する流れを実演した。"
+    ],
+    "minutes": {
+      "summary": [
+        "Codexを使うことで、ローカルフォルダ内のファイル作成・更新・整理までAIに任せられることを共有した。",
+        "取引実績はダッシュボードとして見える化しつつ、AIが再利用できるナレッジファイルとして整備する方針。",
+        "会社資料や営業資料PDFは、Markdown化・ナレッジ化して今後の資料作成やSNS発信に転用する。",
+        "名刺OCRやSUUMO入力自動化の前段として、Google Driveへの素材集約とCodex作業環境の整備を進める。"
+      ],
+      "agenda": [
+        "MTGアーカイブサイトの共有",
+        "取引実績ダッシュボードとデータ一元管理の確認",
+        "Codexアプリの導入と基本操作",
+        "Google Driveへ共有してほしい素材の整理",
+        "ChatGPT / Codexを使ったナレッジファイル作成",
+        "Markdownファイルとファイルパス指定の考え方",
+        "次回までの宿題と運用方針"
+      ],
+      "decisions": [
+        "今後のMTG記録はアーカイブサイトに蓄積する。",
+        "取引実績はダッシュボード化とナレッジファイル化の両面で進める。",
+        "ナレッジファイル作成・更新はCodexを使う方向に寄せる。",
+        "会社資料PDF、営業資料、名刺サンプルをGoogle Driveに共有してもらう。",
+        "AIが読みやすい形式としてMarkdownファイルを活用する。"
+      ],
+      "actionItems": [
+        {
+          "owner": "加賀美",
+          "task": "第2回MTGをアーカイブに追加し、文字起こし全文を紐づける",
+          "due": "対応済み",
+          "status": "完了"
+        },
+        {
+          "owner": "加賀美",
+          "task": "取引実績ダッシュボードの見せ方を内田様の観点で調整する",
+          "due": "次回まで",
+          "status": "未着手"
+        },
+        {
+          "owner": "加賀美",
+          "task": "名刺OCRに必要なサンプル写真の取り込み方法を整理する",
+          "due": "次回まで",
+          "status": "進行中"
+        },
+        {
+          "owner": "内田豊様",
+          "task": "名刺ファイルの1ページ分、可能なら分割写真もGoogle Driveへ共有する",
+          "due": "次回まで",
+          "status": "未着手"
+        },
+        {
+          "owner": "内田豊様",
+          "task": "会社資料・営業資料PDFをGoogle Driveへ共有する",
+          "due": "次回まで",
+          "status": "未着手"
+        },
+        {
+          "owner": "内田豊様",
+          "task": "Codexで作成されたナレッジファイルを確認し、必要な修正点を加賀美へ共有する",
+          "due": "次回まで",
+          "status": "未着手"
+        }
+      ],
+      "risks": [
+        "PDFや資料の読み取り精度によって、ナレッジ化した内容に抜け漏れや誤読が入る可能性がある。",
+        "Codexはローカルファイルを操作できるため、作業フォルダの範囲と素材の置き場所を明確にする必要がある。",
+        "ダッシュボードは見せ方の調整を繰り返さないと、実務で使いにくい画面になる可能性がある。",
+        "Google Driveの共有権限が不適切だと、資料確認や動画閲覧ができない可能性がある。"
+      ],
+      "nextSteps": [
+        "名刺サンプル写真と会社資料PDFをGoogle Driveに共有してもらう。",
+        "取引実績ダッシュボードを内田様の用途に合わせて調整する。",
+        "Codexで作成されたMarkdownナレッジファイルを確認し、追加情報を反映する。",
+        "SUUMO入力自動化に必要な元資料と入力項目の対応関係を整理する。",
+        "Google Drive動画リンクを共有用に設定し、videoUrlへ反映する。"
+      ],
+      "keywords": [
+        {
+          "term": "Codex",
+          "count": 20
+        },
+        {
+          "term": "ナレッジファイル",
+          "count": 18
+        },
+        {
+          "term": "取引実績ダッシュボード",
+          "count": 12
+        },
+        {
+          "term": "Markdown",
+          "count": 8
+        },
+        {
+          "term": "Google Drive",
+          "count": 7
+        },
+        {
+          "term": "名刺サンプル",
           "count": 5
         }
       ]
