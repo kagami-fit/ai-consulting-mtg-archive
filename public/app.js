@@ -387,7 +387,7 @@ function resourcesSection(resources = []) {
     <section class="resources-section">
       <div class="section-heading">
         <h3>共有資料</h3>
-        <p>クライアント共有用の調査・テンプレート</p>
+        <p>会議に紐づくメモ・調査資料・テンプレート</p>
       </div>
       <div class="resource-grid">${cards}</div>
     </section>

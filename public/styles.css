@@ -318,9 +318,10 @@ textarea:focus {
 .archive-hero h2 {
   margin: 8px 0 0;
   color: #fff;
-  font-size: clamp(32px, 5vw, 62px);
+  font-size: clamp(31px, 3.7vw, 56px);
   line-height: 1.08;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .archive-hero p {
@@ -1457,6 +1458,7 @@ textarea:focus {
 
   .archive-hero h2 {
     font-size: 34px;
+    white-space: normal;
   }
 
   .hero-stats {

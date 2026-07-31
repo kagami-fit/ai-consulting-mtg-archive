@@ -26,6 +26,10 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - `public/records/2026-06-13-ai-consulting-kickoff/diagram.png` — 第1回キックオフMTGの図解画像
 - `public/records/2026-06-20-codex-data-knowledge-mtg/diagram.png` — 第2回Codex導入・データ一元管理MTGの図解画像
 - `public/records/2026-06-27-knowledge-ai-content-card-mtg/diagram.png` — 第3回ナレッジ管理とAI活用MTGの図解画像
+- `public/records/2026-07-04-design-ai-production-mtg/diagram.png` — 第4回デザイン方針とAI制作運用MTGの図解画像
+- `public/records/2026-07-12-ai-tools-standardization-mtg/diagram.png` — 第5回AIツール統合・資料標準化MTGの図解画像
+- `public/records/2026-07-19-codex-automation-coaching-mtg/diagram.png` — 第6回Codex業務自動化コーチングMTGの図解画像
+- `public/records/2026-07-25-knowledge-site-sns-mtg/diagram.png` — 第7回ナレッジ基盤・サイト刷新MTGの図解画像
 - `public/reports/business-card-ocr-google-drive.html` — クライアント共有用の名刺OCR・Google Drive連携案
 - `public/templates/business-card-master-template.csv` — 名刺管理シート用のCSVテンプレート
 - `public/transcripts/2026-06-05-ai-real-estate-efficiency-kickoff.html` — 初回相談・キックオフの文字起こし全文ビューア
@@ -36,6 +40,14 @@ AIコンサルティングの会議動画と文字起こし要約を、クライ
 - `public/transcripts/2026-06-20-codex-data-knowledge-mtg.txt` — 第2回Codex導入MTGの文字起こし原文
 - `public/transcripts/2026-06-27-knowledge-ai-content-card-mtg.html` — 第3回ナレッジ管理とAI活用MTGの文字起こし全文ビューア
 - `public/transcripts/2026-06-27-knowledge-ai-content-card-mtg.txt` — 第3回ナレッジ管理とAI活用MTGの文字起こし原文
+- `public/transcripts/2026-07-04-design-ai-production-mtg.html` — 第4回デザイン方針とAI制作運用MTGのPlaud要約メモビューア
+- `public/transcripts/2026-07-04-design-ai-production-mtg.txt` — 第4回デザイン方針とAI制作運用MTGのPlaud要約メモ
+- `public/transcripts/2026-07-12-ai-tools-standardization-mtg.html` — 第5回AIツール統合・資料標準化MTGのPlaud要約メモビューア
+- `public/transcripts/2026-07-12-ai-tools-standardization-mtg.txt` — 第5回AIツール統合・資料標準化MTGのPlaud要約メモ
+- `public/transcripts/2026-07-19-codex-automation-coaching-mtg.html` — 第6回Codex業務自動化コーチングMTGのPlaud要約メモビューア
+- `public/transcripts/2026-07-19-codex-automation-coaching-mtg.txt` — 第6回Codex業務自動化コーチングMTGのPlaud要約メモ
+- `public/transcripts/2026-07-25-knowledge-site-sns-mtg.html` — 第7回ナレッジ基盤・サイト刷新MTGのPlaud統合要約メモビューア
+- `public/transcripts/2026-07-25-knowledge-site-sns-mtg.txt` — 第7回ナレッジ基盤・サイト刷新MTGのPlaud統合要約メモ
 - `server/index.js` — ローカル確認用の読み取り専用Expressサーバー
 - `.github/workflows/pages.yml` — GitHub Pages公開用ワークフロー
 
@@ -63,9 +75,9 @@ Google Drive動画を使う場合は、Drive側で動画ファイルの共有権
 
 - ルートプロジェクト — 開発中
 - `public/` — 稼働中。MTG一覧、検索、詳細表示、動画枠、図解、要約表示を実装済み
-- `public/records/` — 稼働中。初回相談、第1回キックオフMTG、第2回Codex導入MTG、第3回ナレッジ管理とAI活用MTGの図解画像を配置済み
+- `public/records/` — 稼働中。初回相談、第1回〜第7回MTGの図解画像を配置済み
 - `public/reports/` — 稼働中。名刺OCR・Google Drive連携案を配置済み
 - `public/templates/` — 稼働中。名刺管理シートCSVテンプレートを配置済み
-- `public/transcripts/` — 稼働中。初回相談、第1回・第2回・第3回MTGの文字起こし全文を配置済み
+- `public/transcripts/` — 稼働中。初回相談、第1回〜第3回MTGの文字起こし全文、第4回〜第7回MTGのPlaud要約メモを配置済み
 - `server/` — 稼働中。ローカル確認用サーバーとして実装済み
 - GitHub Pages公開 — 稼働中。`https://kagami-fit.github.io/ai-consulting-mtg-archive/` で公開
